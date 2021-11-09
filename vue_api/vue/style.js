@@ -32,22 +32,18 @@ new Vue({
                 this.getTodos();
             })
         },
-        updatePost(id){
-            axios.put('http://localhost:3000/api/book/'+id).then(res =>{
-                    let newText = prompt("EDIT YOUR TEXT IT",res.data.text)
-                    let arr = res.data;
-                    console.log(arr);
-                    arr[0].text = newText;
-                    console.log(arr);
-                    axios.post('http://'+this.url+':3000/update',arr[0]).then(res=>{
-                        this.data = res.data;
-                        this.newObj = {};
-                        this.getData();
-                    })
-                }
-                
-            )
-        },
+        updateBook(){
+            let book = {
+                title:this.title,
+                body: this.description,
+                author_id: Number(this.author_id)
+            }
+            console.log(book);
+            axios.put(this.url+"/"+this.updateId,book).then(res => {
+                console.log("updated");
+                console.log(res.data);
+            });
+        }
     },
     mounted() {
         this.getTodos();

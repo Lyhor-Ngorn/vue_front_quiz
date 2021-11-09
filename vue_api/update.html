@@ -10,13 +10,12 @@
 </head>
 <body>
     <div id="app">
-
         <div class="container d-block">        
             <div class="createNew">
                 <input type="number" placeholder="user_id" v-model="author_id" required>
                 <input type="text" placeholder="title" v-model="title" required>
                 <input type="text" placeholder="text" v-model="description" required>
-                <button @click="addCard" class="btn btn-warning">Create</button>
+                <a href="index.html"><button @click="addCard" class="btn btn-warning">Create</button></a>
             </div>
         </div>
     </div>
